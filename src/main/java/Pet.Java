@@ -15,7 +15,11 @@ public class Pet {
       mFoodLevel = 100;
       mSleepLevel = 100;
       mActivityLevel = 100;
-      mHappinessLevel;//Ideal level = 300
+      setHappinessLevel();//Ideal level = 300
+    }
+
+    public void setHappinessLevel {
+      mHappinessLevel = mFoodLevel + mSleepLevel + mActivityLevel;
     }
 
     public String getPet() {
@@ -34,23 +38,22 @@ public class Pet {
       return mHappinessLevel;
     }
 
-    public Integer HappinessLevel(){
-      mFoodLevel + mSleepLevel + mActivityLevel;
-    }
-
     public void feed(Float foodTime) {
       mFoodLevel += foodTime;
+      setHappinessLevel();
     }
 
     public void rest(Float sleepyTime) {
       mSleepLevel += sleepyTime;
+      setHappinessLevel();
     }
 
     public void play(Float playTime) {
       mActivityLevel += playTime);
+      setHappinessLevel();
     }
 
-    public String happinessLevel(){
+    public String getHappinessLevel(){
         if (mHappinessLevel == 0) {
           return mHappinessDead;
         }
