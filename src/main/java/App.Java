@@ -39,62 +39,41 @@ public class App {
       post("/feed"), (request, response) -> {
         HashMap<String, Object> model = new HashMap<String, Object>();
         Pet myPet = request.session().attribute("myPet";//"myPet" is the name=
-        Float foodAmount = 10.0;
-        Float sleepyTime = -10.0;
-        Float playTime = -10.0;
+        Float foodAmount = 50.0;
+        Float sleepyTime = -50.0;
+        Float playTime = -50.0;
         myPet.setFoodLevel(foodTime);
         myPet.setTiredLevel(sleepyTime);
         myPet.setActivityLevel(playTime);
         model.put("myPet", newPet);
-
-        post("/rest"), (request, response) -> {
-          HashMap<String, Object> model = new HashMap<String, Object>();
-          Pet myPet = request.session().attribute("myPet";//"myPet" is the name=
-          Float foodAmount = -10.0;
-          Float sleepyTime = 10.0;
-          Float playTime = -10.0;
-          myPet.setFoodLevel(foodTime);
-          myPet.setTiredLevel(sleepyTime);
-          myPet.setActivityLevel(playTime);
-          model.put("myPet", newPet);
-
-          post("/play"), (request, response) -> {
-            HashMap<String, Object> model = new HashMap<String, Object>();
-            Pet myPet = request.session().attribute("myPet";//"myPet" is the name=
-            Float foodAmount = -10.0;
-            Float sleepyTime = -10.0;
-            Float playTime = 10.0;
-            myPet.setFoodLevel(foodTime);
-            myPet.setTiredLevel(sleepyTime);
-            myPet.setActivityLevel(playTime);
-            model.put("myPet", newPet);
-
         model.put("template", "templates/success.vtl");
         return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-//
-// get("/create_pet") ->
-//
-//  Pet myPet = new Pet();
-//  request.session().attribute("myPet", myPet);
-// )
-//
-// get("/play", ... ->
-//  myPet = request.session().attribute("myPet");
-//
-//  myPet.play();
-// )
-//
-//
-// get("/create_pet") ->
-//
-//  Pet myPet = new Pet();
-//  request.session().attribute("myPet", myPet);
-// )
-//
-// get("/play", ... ->
-//  myPet = request.session().attribute("myPet");
-//
-//  myPet.play();
-// )
+      post("/rest"), (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Pet myPet = request.session().attribute("myPet";//"myPet" is the name=
+        Float foodAmount = -50.0;
+        Float sleepyTime = 50.0;
+        Float playTime = -50.0;
+        myPet.setFoodLevel(foodTime);
+        myPet.setTiredLevel(sleepyTime);
+        myPet.setActivityLevel(playTime);
+        model.put("myPet", newPet);
+        model.put("template", "templates/success.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+      post("/play"), (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        Pet myPet = request.session().attribute("myPet";//"myPet" is the name=
+        Float foodAmount = -50.0;
+        Float sleepyTime = -50.0;
+        Float playTime = 50.0;
+        myPet.setFoodLevel(foodTime);
+        myPet.setTiredLevel(sleepyTime);
+        myPet.setActivityLevel(playTime);
+        model.put("myPet", newPet);
+        model.put("template", "templates/success.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
