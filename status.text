@@ -1,0 +1,10 @@
+happiness level = 100
+hunger level = 100
+tired level = 50
+
+
+public String status() {
+  if (tired level > 60) {
+   return "im tired"
+  }
+}

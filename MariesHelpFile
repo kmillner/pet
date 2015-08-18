@@ -1,0 +1,11 @@
+get("/create_pet") ->
+
+ Pet myPet = new Pet();
+ request.session().attribute("myPet", myPet);
+)
+
+get("/play", ... ->
+ myPet = request.session().attribute("myPet");
+
+ myPet.play();
+)
